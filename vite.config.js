@@ -11,6 +11,8 @@ export default defineConfig({
       manifest: {
         name: 'ConvoKaro',
         short_name: 'ConvoKaro',
+        start_url: '/',
+        scope: '/',
         description: 'AI-powered conversation confidence training app.',
         theme_color: '#ffffff',
         background_color: '#ffffff',
