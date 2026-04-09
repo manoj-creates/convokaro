@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-convo-bg text-convo-ink font-sans antialiased bg-fixed;
+    background-image: 
+      radial-gradient(circle at 100% 0%, rgba(22, 163, 74, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 0% 100%, rgba(22, 163, 74, 0.05) 0%, transparent 40%);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-normal tracking-tight;
+  }
+}
+
+@layer components {
+  /* Premium 3D Button Styles */
+  .btn-primary {
+    @apply relative overflow-hidden bg-convo-green hover:bg-convo-green-light text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 transform shadow-3d hover:shadow-3d-hover hover:-translate-y-1 active:translate-y-0 active:shadow-glass;
+    box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.3), 0 10px 20px -5px rgba(22, 163, 74, 0.4);
+  }
+  
+  .btn-primary::after {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/10 to-transparent pointer-events-none rounded-full;
+  }
+  
+  .btn-secondary {
+    @apply relative overflow-hidden bg-convo-ink hover:bg-convo-ink-2 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 transform shadow-3d hover:shadow-3d-hover hover:-translate-y-1 active:translate-y-0 active:shadow-glass border border-white/10;
+    box-shadow: inset 0 2px 4px 0 rgba(255, 255, 255, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-outline {
+    @apply bg-white/60 backdrop-blur-md border border-white hover:border-convo-green text-convo-ink shadow-glass hover:shadow-3d-hover font-bold py-3.5 px-8 rounded-full transition-all duration-300;
+  }
+
+  /* Volumetric Glassmorphism Cards */
+  .card {
+    @apply bg-white/70 backdrop-blur-xl border border-white rounded-3xl p-6 shadow-glass hover:shadow-3d transition-all duration-500 relative overflow-hidden;
+  }
+  
+  .card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/60 to-transparent pointer-events-none rounded-3xl opacity-50;
+  }
+
+  /* Specific design rules */
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-xl border border-white shadow-glass;
+  }
+  
+  .btn-3d {
+    @apply relative overflow-hidden transition-all duration-300 transform shadow-3d hover:shadow-3d-hover hover:-translate-y-1 active:translate-y-0 active:shadow-glass;
+  }
+  
+  .text-glow {
+    filter: drop-shadow(0 0 10px rgba(22,163,74,0.6));
+  }
+  
+  .text-glow-green {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+  }
+
+  .badge-free {
+    @apply px-4 py-1.5 bg-gray-100/80 backdrop-blur-sm text-gray-700 font-bold text-xs rounded-full inline-block shadow-inner-light border border-white;
+  }
+  
+  .badge-pro {
+    @apply px-4 py-1.5 bg-convo-green text-white font-bold text-[13px] rounded-full inline-block relative overflow-hidden tracking-wide;
+    box-shadow: inset 0 2px 2px rgba(255,255,255,0.4), 0 4px 12px rgba(22,163,74,0.4);
+  }
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 25s linear infinite !important;
+}
